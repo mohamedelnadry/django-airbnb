@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+<div class="hero-wrap js-fullheight" style="background-image: url({% static 'images/bg_5.jpg' %});">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center"
+            data-scrollax-parent="true">
+            <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+                <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span
+                        class="mr-2"><a href="index.html">Home</a></span> <span class="mr-2"><a
+                            href="hotel.html">Hotel</a></span> <span>Hotel Single</span></p>
+                <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Hotels Details
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+
+<h1>My profile</h1>
+
+<p>{{ myprofile.user.username }}</p>
+
+<p>{{ myprofile.user.email }}</p>
+
+<p>{{ myprofile.phone_number }}</p>
+
+<p>{{ myprofile.address }}</p>
+
+
+
+<hr>
+
+<a href="{% url 'accounts:profileEdit' %}"><p>Edit Profile</p></a>
+<a href="{% url 'password_change' %}"><p>Password Change</p></a>
+
+
+
+{% endblock body %}
+
+
